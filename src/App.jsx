@@ -7,6 +7,7 @@ import Film from "./pages/Film.jsx";
 import Search from "./pages/Search.jsx";
 import NoPage from "./pages/NoPage";
 
+
 function App() {
 
     return (
