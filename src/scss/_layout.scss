@@ -1,0 +1,89 @@
+header {
+  nav {
+    position: sticky;
+    justify-content: space-between;
+    background-color: transparent;
+    color: $white;
+    width: 100%;
+    height: 64px;
+    .content {
+      .sub-media {
+        display: flex;
+        justify-content: space-between;
+        .log {
+          .categories {
+            .content {
+              display: flex;
+              justify-content: space-between;
+              text-decoration: none;
+            }
+
+            .links-flex {
+              list-style: none;
+              padding: 0;
+              margin: 0;
+              display: flex;
+              align-items: center; // Facultatif, pour aligner les éléments verticalement au centre
+            }
+
+            .links-flex li {
+              margin-right: 10px; // Espacement entre les liens (ajustez selon vos besoins)
+            }
+
+            .links-flex li:last-child {
+              margin-right: 0; // Supprimer la marge à droite pour le dernier lien
+              text-decoration: none;
+            }
+
+            .links-flex li a {
+              text-decoration: none; // Ajoutez ceci pour retirer les soulignements sous tous les liens
+              color: black; // Assurez-vous que la couleur du texte est héritée
+            }
+          }
+        }
+
+        .search {
+          display: flex;
+          overflow: hidden;
+          height: 64px;
+
+          .container {
+            position: relative;
+            border-radius: 100px;
+            padding: 5px;
+            place-content: center;
+
+            .search-container {
+              display: flex;
+              position: relative;
+              width: 100%;
+              border-radius: 50px;
+              background: linear-gradient(
+                135deg,
+                rgb(218, 232, 247) 0%,
+                rgb(214, 229, 247) 100%
+              );
+              padding: 5px;
+              display: flex;
+              align-items: center;
+
+              .input {
+                padding: 10px;
+                width: 100%;
+                background: linear-gradient(
+                  135deg,
+                  rgb(218, 232, 247) 0%,
+                  rgb(214, 229, 247) 100%
+                );
+                border: none;
+                color: #9ebcd9;
+                font-size: 20px;
+                border-radius: 50px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

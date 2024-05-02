@@ -6,6 +6,7 @@ import Home from "./pages/Home";
 import Film from "./pages/Film.jsx";
 import Search from "./pages/Search.jsx";
 import NoPage from "./pages/NoPage";
+import  './scss/style.scss';
 
 
 function App() {
