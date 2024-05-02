@@ -1,5 +1,13 @@
+import Card from "../components/Card.jsx";
+
 const Home = () => {
-    return <h1>Home</h1>;
+    return (
+        <>
+            <Card />
+            <h1>Home</h1>
+        </>
+    )
+
 };
 
 export default Home;

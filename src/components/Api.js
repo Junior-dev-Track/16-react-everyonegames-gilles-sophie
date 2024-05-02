@@ -11,10 +11,10 @@ class Api {
     }}
 
     #apiConnexion = (path) => {
-        fetch(`https://api.themoviedb.org/3/${path}`, this.option)
-            .then(response => response.json())
-            .then(response => console.log(response))
-            .catch(err => console.error(err));
+        return fetch(`https://api.themoviedb.org/3/${path}`, this.option)
+                .then(response => response.json())
+                .then(response => console.log(response))
+                .catch(err => console.error(err));
     };
 
     //GET configuration
@@ -23,7 +23,7 @@ class Api {
      * Get all the languages
      */
     getLanguages = () => {
-        this.#apiConnexion("configuration/languages");
+        return this.#apiConnexion("configuration/languages");
     }
 
     //GET popular
@@ -35,7 +35,7 @@ class Api {
      * @param region {string} - The region of the movies in ISO 3166-1
      */
     getPopularMovies = (lang, page = 0, region = "") => {
-        this.#apiConnexion(`movie/popular?${lang}${page === 0 ? '' : `&page=${page}`}${region === "" ? '' : `&region=${region}`}`);
+        return this.#apiConnexion(`movie/popular?${lang}${page === 0 ? '' : `&page=${page}`}${region === "" ? '' : `&region=${region}`}`);
     };
 
     /**
@@ -44,7 +44,7 @@ class Api {
      * @param page {number} - The page number
      */
     getPopularSeries = (lang, page = 0) => {
-        this.#apiConnexion(`tv/popular?${lang}${page === 0 ? '' : `&page=${page}`}`);
+        return this.#apiConnexion(`tv/popular?${lang}${page === 0 ? '' : `&page=${page}`}`);
     }
 
 
@@ -57,7 +57,7 @@ class Api {
      * @param append {Array} - The append to response
      */
     getMovieById = (id,lang,append=[""]) => {
-        this.#apiConnexion(`movie/${id}?language=${lang}${append===[""] ? '' : `&append_to_response=${append.join(',')}`}`);
+        return this.#apiConnexion(`movie/${id}?language=${lang}${append===[""] ? '' : `&append_to_response=${append.join(',')}`}`);
     }
 
     /**
@@ -67,7 +67,7 @@ class Api {
      * @param append {Array} - The append to response
      */
     getSerieById = (id,lang,append=[""]) => {
-        this.#apiConnexion(`tv/${id}?language=${lang}${append===[""] ? '' : `&append_to_response=${append.join(',')}`}`);
+        return this.#apiConnexion(`tv/${id}?language=${lang}${append===[""] ? '' : `&append_to_response=${append.join(',')}`}`);
     }
 
 
