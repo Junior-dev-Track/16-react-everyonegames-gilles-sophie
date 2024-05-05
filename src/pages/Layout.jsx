@@ -55,11 +55,7 @@ const Layout = () => {
               </div>
               <div className="search">
                 <div className="container">
-                  <div
-                    className={`search ${
-                      showSearch ? "show-search" : ""
-                    }`}
-                  >
+                  <div className={`search ${showSearch ? "show-search" : ""}`}>
                     <button
                       onFocus={() => setShowSearch(true)}
                       onBlur={() => {
@@ -82,7 +78,7 @@ const Layout = () => {
                 </div>
 
                 <button className="connexion-button">Connexion</button>
-                <button className="language-button">Langue</button>
+                <button className="language-button">Langues</button>
               </div>
             </div>
           </div>

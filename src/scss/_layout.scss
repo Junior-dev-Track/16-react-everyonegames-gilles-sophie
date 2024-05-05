@@ -6,6 +6,7 @@ header {
     color: $white;
     width: 100%;
     height: 64px;
+    padding: 15px 10px;
     .content {
       .sub-media {
         display: flex;
@@ -44,14 +45,31 @@ header {
 
         .search {
           display: flex;
-          overflow: hidden;
-          height: 64px;
 
+          height: 24px;
+          justify-content: center;
+          align-items: center;
+          padding: 0.2rem;
+          gap: 0.4rem;
+          padding-left: 0.5rem;
           .container {
             position: relative;
             border-radius: 100px;
             padding: 5px;
             place-content: center;
+
+            button {
+              background-color: transparent;
+              border: none;
+              cursor: pointer;
+              &:focus {
+                outline: none;
+              }
+              svg {
+                color: #f34242; /** on va changer de couleur plus tard**/
+                font-size: 1.2rem;
+              }
+            }
 
             .search-container {
               display: flex;
@@ -67,18 +85,30 @@ header {
               display: flex;
               align-items: center;
 
-              .input {
+              input {
                 padding: 10px;
-                width: 100%;
-                background: linear-gradient(
-                  135deg,
-                  rgb(218, 232, 247) 0%,
-                  rgb(214, 229, 247) 100%
-                );
+                width: 0;
+                opacity: 0;
+                visibility: hidden;
+                background-color: transparent;
                 border: none;
-                color: #9ebcd9;
-                font-size: 20px;
-                border-radius: 50px;
+                color: black; /** changer de couleur**/
+                transition: 0.3s ease-in-out;
+
+                &:focus {
+                  outline: none;
+                }
+              }
+              /** ne fonctionne pas encore la transition de search**/
+              .show-search {
+                border: 1px solid red;
+                background-color: #f34242;
+                input {
+                  width: 100%;
+                  opacity: 1;
+                  visibility: visible;
+                  padding: 0.3rem;
+                }
               }
             }
           }

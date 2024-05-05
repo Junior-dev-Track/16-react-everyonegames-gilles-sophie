@@ -17,10 +17,10 @@ export default function Card() {
     return (
         <div className="card">
             <div className="card__img">
-                The img of the film
+                {/**The img of the film**/}
             </div>
             <div className="card__title">
-                A title
+               {/**  A title*/}
             </div>
             <div className="card__hover__wrap">
                 <div className="card__info">
