@@ -22,7 +22,10 @@ const Home = () => {
     return (
         <>
             <Card />
-            <h1>Home ici</h1>
+            <h1>va dans Movies :)</h1>
+            <p>je n'ai pas pu beaucoup travailler j'ai eu un imprevu
+                l'infinite scroll a été fait et j'ai compris comment utiliser l'api
+            </p>
 
             <div className="hero">
                 {/* Ici, vous pouvez ajouter d'autres éléments ou composants */}

@@ -1,0 +1,28 @@
+.film-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); // Crée quatre colonnes égales
+    gap: 20px; // Espacement entre les films
+}
+
+.film-item {
+    width: calc(25% - 20px); // Largeur de chaque élément film (25% de la largeur de la grille moins l'espacement)
+    margin-bottom: 20px; // Espacement entre les lignes
+}
+
+@media screen and (max-width: 1200px) {
+    .film-item {
+        width: calc(33.33% - 20px); // Si l'écran est plus petit, afficher trois films par ligne
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .film-item {
+        width: calc(50% - 20px); // Si l'écran est encore plus petit, afficher deux films par ligne
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .film-item {
+        width: 100%; // Pour les écrans très petits, afficher un film par ligne
+    }
+}

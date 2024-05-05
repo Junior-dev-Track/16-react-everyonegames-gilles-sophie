@@ -1,30 +1,26 @@
 import React, { useState, useEffect } from "react";
-import { Outlet } from "react-router-dom";
-import { Link } from "react-router-dom";
+import { Outlet, Link } from "react-router-dom";
 import { FaSearch } from "react-icons/fa";
-import axios from "axios"; // Importer Axios pour effectuer des requêtes HTTP
+import axios from "axios";
 
 const Layout = () => {
+  // State pour détecter le défilement de la page
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  // State pour afficher/masquer la barre de recherche
   const [showSearch, setShowSearch] = useState(false);
-  const [inputHover, setInputHover] = useState(false);
-  const [searchResults, setSearchResults] = useState([]); // Stocker les résultats de la recherche
-  const [searchQuery, setSearchQuery] = useState(""); // Stocker le terme de recherche
+  // State pour stocker les résultats de recherche
+  const [searchResults, setSearchResults] = useState([]);
+  // State pour stocker le terme de recherche
+  const [searchQuery, setSearchQuery] = useState("");
 
-  const toggleDropdown = () => {
-    setIsDropdownOpen(!isDropdownOpen);
-  };
-
+  // Effet pour détecter le défilement de la page
   useEffect(() => {
-    // Gérer le changement de position de défilement pour modifier l'état isScrolled
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 0);
     };
 
     window.addEventListener("scroll", handleScroll);
 
-    // Nettoyer l'écouteur d'événement lors de la suppression du composant
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
@@ -41,15 +37,13 @@ const Layout = () => {
   // Fonction pour effectuer la recherche
   const handleSearch = async () => {
     try {
-      const apiKey = process.env.REACT_APP_IMDB_API_KEY;
-      const response = await axios.get(`https://imdb-api.com/API/Search/${apiKey}/${searchQuery}`);
-      setSearchResults(response.data.results);
+      const apiKey = import.meta.env.VITE_API_KEY; // Récupération de la clé API
+      const response = await axios.get(`https://api.themoviedb.org/3${apiKey}/${searchQuery}`);
+      setSearchResults(response.data.results || []); // Mise à jour des résultats de recherche
     } catch (error) {
       console.error("Error fetching search results:", error);
     }
   };
-  
-  
 
   // Gérer le changement de valeur de l'entrée de recherche
   const handleInputChange = (event) => {
@@ -71,7 +65,6 @@ const Layout = () => {
           <div className="content">
             <div className="sub-media">
               <div className="log">
-                {/* Logo */}
                 <img src="" alt="" />
                 {/* Liens de navigation */}
                 <div className="categories">
@@ -88,7 +81,7 @@ const Layout = () => {
               <div className="search">
                 <div className="container">
                   <div className={`search ${showSearch ? "show-search" : ""}`}>
-                    {/* Bouton de recherche */}
+                    {/* Bouton de recherche (icône) */}
                     <button onFocus={() => setShowSearch(true)} onBlur={() => setShowSearch(false)}>
                       <FaSearch />
                     </button>
@@ -96,18 +89,10 @@ const Layout = () => {
                     <input
                       type="text"
                       placeholder="Search"
-                      onMouseEnter={() => setInputHover(true)}
-                      onMouseLeave={() => setInputHover(false)}
-                      onBlur={() => {
-                        setShowSearch(false);
-                        setInputHover(false);
-                      }}
                       onChange={handleInputChange}
                       onKeyUp={handleInputKeyUp} // Gérer l'appui sur la touche "Entrée"
                       value={searchQuery}
                     />
-                    {/* Bouton de recherche */}
-                    <button onClick={handleSearch}>Search</button>
                   </div>
                 </div>
                 {/* Boutons de connexion et de langues */}
@@ -134,6 +119,8 @@ const Layout = () => {
 };
 
 export default Layout;
+
+
 
 
 
