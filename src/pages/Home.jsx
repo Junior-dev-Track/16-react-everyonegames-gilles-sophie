@@ -1,10 +1,9 @@
-import Card from "../components/Card.jsx";
 import React, { useState, useEffect } from "react";
-{/**import backgroundimage from "../assets/home.jpg";
-import MovieLogo from "../assets/homeTitlle.webp";**/}
 import { FaPlay } from "react-icons/fa";
 import { AiOutlineInfoCircle } from "react-icons/ai";
 import Layout from "./Layout.jsx";
+import Card from "../components/Card.jsx";
+
 const Home = () => {
     const [isScrolled, setIsScrolled] = useState(false);
 
@@ -22,22 +21,11 @@ const Home = () => {
 
     return (
         <>
-            {/**<Card />**/}
-           
-            <h1>Home</h1>
+            <Card />
+            <h1>Home ici</h1>
 
             <div className="hero">
-                <img src={backgroundImage} alt="background" 
-                className="background-image"/>
-
-                <div className="container">
-                    <div className="logo">
-                        <img src={MovieLogo} alt="Movie Logo" />
-                    </div>
-                    <div className="button-flex">
-                        <button className="flex-j-center a-center"></button>
-                    </div>
-                </div>
+                {/* Ici, vous pouvez ajouter d'autres éléments ou composants */}
             </div>
         </>
     );
