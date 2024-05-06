@@ -1,13 +1,22 @@
+/* Series.css */
+
 .film-container {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); // Crée quatre colonnes égales
-    gap: 20px; // Espacement entre les films
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    background-color: white;
 }
 
 .film-item {
-    width: calc(25% - 20px); // Largeur de chaque élément film (25% de la largeur de la grille moins l'espacement)
-    margin-bottom: 20px; // Espacement entre les lignes
+    width: calc(90% - 90px); /* Largeur de chaque élément film (50% de la largeur de la grille moins l'espacement) */
+    margin-bottom: 20px;
 }
+
+.film-item img {
+    width: 150%; /* Ajuster la largeur de l'image pour remplir entièrement son conteneur */
+    height: auto; /* Permettre à la hauteur de l'image de s'ajuster automatiquement pour conserver les proportions */
+}
+
 
 @media screen and (max-width: 1200px) {
     .film-item {

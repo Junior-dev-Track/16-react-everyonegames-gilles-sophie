@@ -1,0 +1,24 @@
+/* Series.css */
+
+.film-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    background-color: white;
+   padding-left: 150px;
+  
+ 
+}
+
+.film-item {
+    width: calc(70% - 10px); /* Largeur de chaque élément film (50% de la largeur de la grille moins l'espacement) */
+    margin-bottom: 20px;
+}
+
+.film-item img {
+    width: 150%; /* Ajuster la largeur de l'image pour remplir entièrement son conteneur */
+    height: auto; /* Permettre à la hauteur de l'image de s'ajuster automatiquement pour conserver les proportions */
+  
+}
+
+

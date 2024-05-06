@@ -1,5 +1,5 @@
 header {
-  
+  background-color: transparent;
   nav {
     position: sticky;
     justify-content: space-between;
@@ -26,10 +26,12 @@ header {
               margin: 0;
               display: flex;
               align-items: center; // Facultatif, pour aligner les éléments verticalement au centre
+              
             }
 
             .links-flex li {
               margin-right: 10px; // Espacement entre les liens (ajustez selon vos besoins)
+              
             }
 
             .links-flex li:last-child {
@@ -40,6 +42,9 @@ header {
             .links-flex li a {
               text-decoration: none; // Ajoutez ceci pour retirer les soulignements sous tous les liens
               color: black; // Assurez-vous que la couleur du texte est héritée
+              font-weight: 700;
+             margin-right: 65px;
+             
             }
           }
         }

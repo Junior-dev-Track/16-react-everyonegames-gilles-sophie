@@ -3,13 +3,13 @@ import React, { useState, useEffect } from "react";
 
 const API_KEY = "ef395594fb7732a80f87fba271290c54";
 
-const Film = () => {
+const Series = () => {
     const [movieList, setMovieList] = useState([]);
     const [page, setPage] = useState(1);
     const [fetchedMovieIds, setFetchedMovieIds] = useState(new Set());
 
     const getMovie = (pageNum) => {
-        fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&page=${pageNum}`)
+        fetch(`https://api.themoviedb.org/3/discover/tv?api_key=${API_KEY}&page=${pageNum}`)
             .then(res => res.json())
             .then(json => {
                 // Filter out movies whose IDs are already fetched
@@ -36,16 +36,16 @@ const Film = () => {
     }, [fetchedMovieIds]); // Trigger when new movies are fetched
 
     return (
-        <div className="film-container"> {/* Ajoutez la classe pour la grille */}
+        <div className="film-container"> {/* Utiliser la classe pour la grille */}
             {movieList.map((movie, index) => (
-                <div key={index} className="film-item"> {/* Ajoutez la classe pour chaque film */}
+                <div key={index} className="film-item"> {/* Utiliser la classe pour chaque film */}
                     <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} />
                     <div className="film-details">
                         <h3>{movie.title}</h3>
                         <p>Release Date: {movie.release_date}</p>
                         <p>Rating: {movie.vote_average}</p>
                         <p> {movie.overview}</p>
-                        {/* Ajoutez d'autres informations du film ici */}
+                        {/* Ajouter d'autres informations sur le film ici */}
                     </div>
                 </div>
             ))}
@@ -53,8 +53,5 @@ const Film = () => {
     );
 };
 
-export default Film;
-
-
-
+export default Series;
 

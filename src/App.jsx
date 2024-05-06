@@ -4,7 +4,7 @@ import ReactDOM from "react-dom/client";
 import Layout from "./pages/Layout";
 import Home from "./pages/Home";
 import Film from "./pages/Film.jsx";
-import Search from "./pages/Search.jsx";
+import Series from "./pages/Series.jsx";
 import NoPage from "./pages/NoPage";
 import  './scss/style.scss';
 
@@ -17,7 +17,7 @@ function App() {
                 <Route path="/" element={<Layout />}>
                     <Route index element={<Home />} />
                     <Route path="film" element={<Film />} />
-                    <Route path="search" element={<Search />} />
+                    <Route path="series" element={<Series />} />
                     <Route path="*" element={<NoPage />} />
                 </Route>
             </Routes>
