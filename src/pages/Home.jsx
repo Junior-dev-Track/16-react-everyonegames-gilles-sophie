@@ -4,6 +4,8 @@ import { AiOutlineInfoCircle } from "react-icons/ai";
 import Layout from "./Layout.jsx";
 import Card from "../components/Card.jsx";
 
+{/**min25 */}
+
 const Home = () => {
     const [isScrolled, setIsScrolled] = useState(false);
 
