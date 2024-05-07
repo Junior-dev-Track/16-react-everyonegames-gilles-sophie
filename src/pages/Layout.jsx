@@ -33,7 +33,7 @@ const Layout = () => {
     { name: "Home", link: "/" },
     { name: "Movies", link: "/Film" },
     { name: "TV Shows", link: "/Series" },
-    { name: "My List", link: "/mylist" },
+    
     {name: "Search", link: "/search"}
   ];
 
@@ -79,19 +79,11 @@ const Layout = () => {
               {/* Barre de recherche */}
               <div className="search">
                 <div className="container">
-                  <div className={`search ${showSearch ? "show-search" : ""}`}>
+                  <div className={`search ${showSearch ? "show" : ""}`}>
                     {/* Bouton de recherche (icône) */}
-                    <button onFocus={() => setShowSearch(true)} onBlur={() => setShowSearch(false)}>
-                      <FaSearch />
-                    </button>
+                   
                     {/* Entrée de recherche */}
-                    <input
-                      type="text"
-                      placeholder="Search"
-                      onChange={handleInputChange}
-                      onKeyUp={handleInputKeyUp} // Gérer l'appui sur la touche "Entrée"
-                      value={searchQuery}
-                    />
+                
                   </div>
                 </div>
                 {/* Boutons de connexion et de langues */}
@@ -102,20 +94,7 @@ const Layout = () => {
           </div>
         </nav>
       </header>
-      {/* Affichage des résultats de la recherche */}
-      <div>
-        {searchResults.map((result) => (
-            <div key={result.id}>
-              <img src={`https://image.tmdb.org/t/p/w500${result.poster_path}`} alt={result.title}/>
-              <div className="film-details">
-                <h3>{result.title}</h3>
-                <p>Release Date: {result.release_date}</p>
-                <p>Rating: {result.vote_average}</p>
-                {/* Ajoutez d'autres informations du film ici */}
-              </div>
-            </div>
-        ))}
-      </div>
+   
       {/* Composant enfant */}
       <Outlet/>
     </>
