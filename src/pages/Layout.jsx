@@ -32,7 +32,7 @@ const Layout = () => {
   const links = [
     { name: "Home", link: "/" },
     { name: "Movies", link: "/Film" },
-    { name: "TV Shows", link: "/series" },
+    { name: "TV Shows", link: "/Series" },
     { name: "My List", link: "/mylist" },
   ];
 

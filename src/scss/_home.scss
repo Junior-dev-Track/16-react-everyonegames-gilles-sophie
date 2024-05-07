@@ -1,0 +1,87 @@
+body {
+    .banner {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      
+        display: flex;
+        flex-direction: row; // Aligner les éléments horizontalement
+        justify-content: space-between; // Espacer les éléments
+        background: linear-gradient(0deg, rgb(218, 232, 247) 0%, rgb(255, 255, 255) 100%);
+        background-size: cover;
+        overflow: hidden;
+        transition: 0.5s;
+       
+    
+        .banner-image {
+            width: 40%; /* Ajustez la largeur de l'image selon vos préférences */
+           top: 0;
+           right: 0;
+           left: 0;
+           bottom: 0;
+
+        }
+    
+        .details {
+            flex: 1; // Les détails prennent tout l'espace restant
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            .title{
+                font-family: "roboto";
+                font-style: 900;
+                line-height: 2rem;
+                
+            }
+    
+            h4 {
+                margin-bottom: 10px;
+
+            }
+    
+            p {
+                margin-bottom: 50px;
+                margin-top: 30px;
+                width: 80%;
+            }
+    
+            .button {
+                display: flex;
+                flex-direction: row;
+    
+                a {
+                    margin-right: 10px;
+                    background: red;
+                    color: #ffff;
+                    padding: 6px 20px;
+                    text-decoration: none;
+                    font-weight: 500;
+                    letter-spacing: 1px;
+                    text-transform: uppercase;
+                    transition: 0.5s;
+                    cursor: pointer;
+                }
+            }
+        }
+
+
+    
+       
+    }
+    
+
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px; // Ou toute autre valeur de rembourrage que vous souhaitez
+    background-color: transparent; // Fond complètement transparent pour le header
+    z-index: 1000; // Pour s'assurer que le header est au-dessus de la bannière
+    transition: 0.5s;
+  }
+}
