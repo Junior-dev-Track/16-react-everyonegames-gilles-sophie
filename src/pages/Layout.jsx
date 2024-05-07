@@ -34,6 +34,7 @@ const Layout = () => {
     { name: "Movies", link: "/Film" },
     { name: "TV Shows", link: "/Series" },
     { name: "My List", link: "/mylist" },
+    {name: "Search", link: "/search"}
   ];
 
   // Fonction pour effectuer la recherche

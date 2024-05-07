@@ -5,8 +5,10 @@ import Layout from "./pages/Layout";
 import Home from "./pages/Home";
 import Film from "./pages/Film.jsx";
 import Series from "./pages/Series.jsx";
+import Search from "./pages/Search";
 import NoPage from "./pages/NoPage";
 import  './scss/style.scss';
+
 
 
 function App() {
@@ -18,6 +20,7 @@ function App() {
                     <Route index element={<Home />} />
                     <Route path="film" element={<Film />} />
                     <Route path="series" element={<Series />} />
+                    <Route path={"Search"} element={<Search />} />
                     <Route path="*" element={<NoPage />} />
                 </Route>
             </Routes>
