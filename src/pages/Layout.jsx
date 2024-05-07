@@ -13,10 +13,21 @@ const Layout = () => {
   const [searchResults, setSearchResults] = useState([]);
   // State pour stocker le terme de recherche
   const [searchQuery, setSearchQuery] = useState("");
+  // State pour stocker la langue sélectionnée
+  const [selectedLanguage, setSelectedLanguage] = useState('en');
+  // State pour stocker les langues disponibles
+  const [languages, setLanguages] = useState([]);
+
+  // Instance de l'API
   const api = new Api();
 
   // Effet pour détecter le défilement de la page
   useEffect(() => {
+
+    api.getLanguages().then(languages => {
+      setLanguages(languages);
+    });
+
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 0);
     };
@@ -56,6 +67,11 @@ const Layout = () => {
     }
   };
 
+  // Gérer le changement de langue
+  const handleLanguageChange = (event) => {
+    setSelectedLanguage(event.target.value);
+  };
+
   return (
     <>
       {/* En-tête de la page */}
@@ -82,21 +98,26 @@ const Layout = () => {
                   <div className={`search ${showSearch ? "show-search" : ""}`}>
                     {/* Bouton de recherche (icône) */}
                     <button onFocus={() => setShowSearch(true)} onBlur={() => setShowSearch(false)}>
-                      <FaSearch />
+                      <FaSearch/>
                     </button>
                     {/* Entrée de recherche */}
                     <input
-                      type="text"
-                      placeholder="Search"
-                      onChange={handleInputChange}
-                      onKeyUp={handleInputKeyUp} // Gérer l'appui sur la touche "Entrée"
-                      value={searchQuery}
+                        type="text"
+                        placeholder="Search"
+                        onChange={handleInputChange}
+                        onKeyUp={handleInputKeyUp} // Gérer l'appui sur la touche "Entrée"
+                        value={searchQuery}
                     />
                   </div>
                 </div>
                 {/* Boutons de connexion et de langues */}
-                <button className="connexion-button">Connexion</button>
-                <button className="language-button">Langues</button>
+                <select value={selectedLanguage} onChange={handleLanguageChange}>
+                  {languages.map((language) => (
+                      <option key={language.iso_639_1} value={language.iso_639_1}>
+                        {language.english_name}
+                      </option>
+                    ))}
+                </select>
               </div>
             </div>
           </div>
