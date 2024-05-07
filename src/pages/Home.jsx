@@ -50,7 +50,9 @@ const Home = () => {
         <div>
             {movieList.length > 0 && (
                 <div className="banner">
+                    
                     <img src={`https://image.tmdb.org/t/p/w500/${movieList[selectedMovieIndex].poster_path}`} alt={movieList[selectedMovieIndex].title} className="banner-image" />
+                    
                     <div className="details">
                         <h4 className="title">{movieList[selectedMovieIndex].title}</h4>
                         <p>{movieList[selectedMovieIndex].overview}</p>

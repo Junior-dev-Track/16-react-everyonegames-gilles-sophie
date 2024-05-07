@@ -1,24 +1,61 @@
-/* Series.css */
+/* Series.scss */
 
 .film-container {
+    width: 100%;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
     background-color: white;
-   padding-left: 150px;
-  
- 
+    padding-left: 130px;
+    position: relative;
+    cursor: pointer;
 }
 
 .film-item {
-    width: calc(70% - 10px); /* Largeur de chaque élément film (50% de la largeur de la grille moins l'espacement) */
+    width: calc(70% - 10px);
     margin-bottom: 20px;
+    margin-top: 40px;
+    position: relative;
+
+    img {
+        width: 100%;
+        height: auto;
+        border: 3px solid red;
+        transition: transform 0.3s ease;
+
+        &:hover {
+            transform: scale(1.1);
+        }
+    }
+
+    .film-details {
+        position: absolute;
+        background-color: rgba(0, 0, 0, 0.5);
+        color: white;
+        padding: 10px;
+        display: none; /* Masquer les détails par défaut */
+        width: 100%;
+
+        h3 {
+            margin-bottom: 5px;
+        }
+
+        p {
+            margin: 0;
+        }
+    }
+
+    &:hover .film-details {
+        display: block; /* Afficher les détails au survol */
+    }
 }
 
-.film-item img {
-    width: 150%; /* Ajuster la largeur de l'image pour remplir entièrement son conteneur */
-    height: auto; /* Permettre à la hauteur de l'image de s'ajuster automatiquement pour conserver les proportions */
-  
-}
+
+
+
+
+
+
+
 
 

@@ -25,29 +25,49 @@ header {
               padding: 0;
               margin: 0;
               display: flex;
-              align-items: center; // Facultatif, pour aligner les éléments verticalement au centre
-              
-            }
+              align-items: center;
 
-            .links-flex li {
-              margin-right: 10px; // Espacement entre les liens (ajustez selon vos besoins)
-              
-            }
+              li {
+                margin-right: 10px;
+              }
 
-            .links-flex li:last-child {
-              margin-right: 0; // Supprimer la marge à droite pour le dernier lien
-              text-decoration: none;
-            }
+              li:last-child {
+                margin-right: 0;
+              }
 
-            .links-flex li a {
-              text-decoration: none; // Ajoutez ceci pour retirer les soulignements sous tous les liens
-              color: black; // Assurez-vous que la couleur du texte est héritée
-              font-weight: 700;
-             margin-right: 65px;
-             
+              li a {
+                text-decoration: none;
+                color: black;
+                font-weight: 700;
+                position: relative;
+                width: 100px;
+                height: 100px;
+                border: 2px solid rgb(1, 235, 252);
+                overflow: hidden;
+                box-shadow: 0px 0px 100px rgb(1, 235, 252), inset 0px 0px 10px rgb(1, 235, 252), 0px 0px 5px rgb(255, 255, 255);
+                padding: 10px;
+                animation: text-flicker 2s linear infinite; /* Changement ici */
+              }
+
+              @keyframes text-flicker { /* Changement ici */
+                0% {
+                  color: black;
+                }
+                50% {
+                  color: transparent; /* Changement ici */
+                }
+                100% {
+                  color: black;
+                }
+              }
             }
           }
         }
+      
+    
+  
+
+
 
         .search {
           display: flex;
@@ -71,10 +91,7 @@ header {
               &:focus {
                 outline: none;
               }
-              svg {
-                color: #f34242; /** on va changer de couleur plus tard**/
-                font-size: 1.2rem;
-              }
+            
             }
 
             .search-container {

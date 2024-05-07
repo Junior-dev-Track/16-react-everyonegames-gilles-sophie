@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 
-
 const API_KEY = "ef395594fb7732a80f87fba271290c54";
 
 const Series = () => {
@@ -36,16 +35,15 @@ const Series = () => {
     }, [fetchedMovieIds]); // Trigger when new movies are fetched
 
     return (
-        <div className="film-container"> {/* Utiliser la classe pour la grille */}
+        <div className="film-container">
             {movieList.map((movie, index) => (
-                <div key={index} className="film-item"> {/* Utiliser la classe pour chaque film */}
+                <div key={index} className="film-item">
                     <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} />
                     <div className="film-details">
                         <h3>{movie.title}</h3>
                         <p>Release Date: {movie.release_date}</p>
                         <p>Rating: {movie.vote_average}</p>
-                        <p> {movie.overview}</p>
-                        {/* Ajouter d'autres informations sur le film ici */}
+                        <p>{movie.overview}</p>
                     </div>
                 </div>
             ))}
@@ -54,4 +52,5 @@ const Series = () => {
 };
 
 export default Series;
+
 

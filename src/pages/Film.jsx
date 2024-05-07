@@ -36,6 +36,9 @@ const Film = () => {
     }, [fetchedMovieIds]); // Trigger when new movies are fetched
 
     return (
+        <body>
+            
+        
         <div className="film-container"> {/* Ajoutez la classe pour la grille */}
             {movieList.map((movie, index) => (
                 <div key={index} className="film-item"> {/* Ajoutez la classe pour chaque film */}
@@ -50,6 +53,7 @@ const Film = () => {
                 </div>
             ))}
         </div>
+        </body>
     );
 };
 
