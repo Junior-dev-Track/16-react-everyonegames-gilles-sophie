@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Outlet, Link } from "react-router-dom";
 import { FaSearch } from "react-icons/fa";
 import axios from "axios";
+import Api from "../components/Api.js";
 
 const Layout = () => {
   // State pour détecter le défilement de la page
@@ -12,6 +13,7 @@ const Layout = () => {
   const [searchResults, setSearchResults] = useState([]);
   // State pour stocker le terme de recherche
   const [searchQuery, setSearchQuery] = useState("");
+  const api = new Api();
 
   // Effet pour détecter le défilement de la page
   useEffect(() => {
@@ -36,13 +38,9 @@ const Layout = () => {
 
   // Fonction pour effectuer la recherche
   const handleSearch = async () => {
-    try {
-      const apiKey = import.meta.env.VITE_API_KEY; // Récupération de la clé API
-      const response = await axios.get(`https://api.themoviedb.org/3${apiKey}/${searchQuery}`);
-      setSearchResults(response.data.results || []); // Mise à jour des résultats de recherche
-    } catch (error) {
-      console.error("Error fetching search results:", error);
-    }
+      const response = await api.searchMovie(searchQuery, "en-US", 1, false); // Recherche de films
+      console.log(response.results);
+      setSearchResults(response.results || []); // Mise à jour des résultats de recherche
   };
 
   // Gérer le changement de valeur de l'entrée de recherche
@@ -51,9 +49,9 @@ const Layout = () => {
   };
 
   // Gérer l'appui sur la touche "Entrée" dans le champ de saisie de recherche
-  const handleInputKeyUp = (event) => {
+  const handleInputKeyUp = async (event) => {
     if (event.key === "Enter") {
-      handleSearch(); // Lancer la recherche lorsque la touche "Entrée" est pressée
+      await handleSearch(); // Lancer la recherche lorsque la touche "Entrée" est pressée
     }
   };
 
@@ -106,14 +104,19 @@ const Layout = () => {
       {/* Affichage des résultats de la recherche */}
       <div>
         {searchResults.map((result) => (
-          <div key={result.id}>
-            <img src={result.poster} alt={result.title} />
-            <p>{result.title}</p>
-          </div>
+            <div key={result.id}>
+              <img src={`https://image.tmdb.org/t/p/w500${result.poster_path}`} alt={result.title}/>
+              <div className="film-details">
+                <h3>{result.title}</h3>
+                <p>Release Date: {result.release_date}</p>
+                <p>Rating: {result.vote_average}</p>
+                {/* Ajoutez d'autres informations du film ici */}
+              </div>
+            </div>
         ))}
       </div>
       {/* Composant enfant */}
-      <Outlet />
+      <Outlet/>
     </>
   );
 };

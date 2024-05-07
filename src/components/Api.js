@@ -1,7 +1,7 @@
 class Api {
 
     constructor() {
-        this.key = import.meta.env.VITE_API_KEY;
+        this.key = import.meta.env.VITE_APP_API_KEY;
         this.option = {//"&api_key=3e5b29a83810b6baa1f34af69101db45"
             method: 'GET',
             headers: {
@@ -13,7 +13,6 @@ class Api {
     #apiConnexion = (path) => {
         return fetch(`https://api.themoviedb.org/3/${path}`, this.option)
                 .then(response => response.json())
-                .then(response => console.log(response))
                 .catch(err => console.error(err));
     };
 
@@ -70,8 +69,28 @@ class Api {
         return this.#apiConnexion(`tv/${id}?language=${lang}${append===[""] ? '' : `&append_to_response=${append.join(',')}`}`);
     }
 
+    //GET search
 
+    /**
+     * Search for a movie
+     * @param query {string} - The query to search
+     * @param lang {string} - The language of the movie
+     * @param page {number} - The page number
+     * @param includeAdult {boolean} - Include adult content
+     */
+    searchMovie = (query, lang,page = 0,includeAdult = false) => {
+        return this.#apiConnexion(`search/multi?query=${query}&include_adult=${includeAdult}&language=${lang}${page === 0 ? '1' : `&page=${page}`}`);
+    }
 
+    //GET discover
+    /**
+     * Discover movies
+     * @param lang {string} - The language of the movies
+     * @param page {number} - The page number
+     */
+    discoverMovies = (lang,page = 0) => {
+        return this.#apiConnexion(`discover/movie?language=${lang}${page === 0 ? '' : `&page=${page}`}`);
+    }
 }
 
 export default Api;
