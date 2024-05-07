@@ -55,16 +55,17 @@ body {
         flex-direction: row;
 
         a {
-          margin-right: 10px;
-          background: red;
+          margin-right: 30px;
+          background: rgb(1, 235, 252);
           color: #ffff;
-          padding: 6px 20px;
+          padding: 6px 30px;
           text-decoration: none;
-          font-weight: 500;
+          font-weight: 700;
           letter-spacing: 1px;
           text-transform: uppercase;
           transition: 0.5s;
           cursor: pointer;
+          box-shadow: 0px 0px 100px rgb(1, 235, 252), inset 0px 0px 10px rgb(1, 235, 252), 0px 0px 5px rgb(255, 255, 255);
         }
       }
     }
