@@ -299,22 +299,4 @@ body {
   }
 }
 
-header {
-  position: sticky;
-  top: 0;
-  left: 0;
-  width: 100%;
-  padding: 20px;
-  background-color: transparent;
-  z-index: 1000; // Assurez-vous que le z-index est plus élevé que celui du loader
-  transition: 0.5s;
 
-  padding: 10px;
-  font-family: "Courier New", Courier, monospace;
-  outline: none;
-  background: rgb(164, 202, 248);
-  box-shadow: 5px 5px 17px rgb(164, 202, 248), -5px -5px 17px #ffffff;
-  border: none;
-  border-radius: 10px;
-  transition: all 0.5s;
-}
