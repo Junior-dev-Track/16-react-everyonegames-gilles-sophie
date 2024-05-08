@@ -67,19 +67,28 @@ body {
         flex-direction: row;
         justify-content: center;
         align-items: center;
+        
+
+        svg{
+          width: 10px;
+        }
         a {
+          display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+          width: auto;
           margin-right: 50px;
-         
+         gap: 5px;
           color: #ffff;
-          padding: 0 10px;
+          padding: 0 15px;
           text-decoration: none;
           font-weight: 700;
           letter-spacing: 1px;
           text-transform: uppercase;
           transition: 0.5s;
           cursor: pointer;
-          max-width: 200px;
-          min-height: 40px;
+         
           padding: 10px;
           font-family: 'Courier New', Courier, monospace;
           outline: none;
