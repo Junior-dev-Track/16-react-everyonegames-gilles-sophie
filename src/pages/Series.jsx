@@ -1,7 +1,4 @@
-// Dans Series.js
-
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom"; // Importer Link de react-router-dom
 
 const API_KEY = "ef395594fb7732a80f87fba271290c54";
 
@@ -40,8 +37,7 @@ const Series = () => {
     return (
         <div className="film-container">
             {movieList.map((movie, index) => (
-                // Utilisez Link pour envelopper chaque image et naviguer vers la page des détails
-                <Link key={index} to={`/series/${movie.id}`} className="film-item">
+                <div key={index} className="film-item">
                     <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} />
                     <div className="film-details">
                         <h3>{movie.title}</h3>
@@ -49,13 +45,12 @@ const Series = () => {
                         <p>Rating: {movie.vote_average}</p>
                         <p>{movie.overview}</p>
                     </div>
-                </Link>
+                </div>
             ))}
         </div>
     );
 };
 
 export default Series;
-
 
 

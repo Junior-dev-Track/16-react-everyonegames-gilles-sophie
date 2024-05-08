@@ -20,10 +20,10 @@
     img {
         width: 100%;
         height: auto;
-        border: 1px solid rgb(1, 235, 252) ;
+        border: 1px solid rgb(164, 202, 248) ;
         border-radius: 5%;
         transition: transform 0.3s ease;
-        box-shadow: 0px 0px 100px rgb(1, 235, 252), inset 0px 0px 10px rgb(1, 235, 252), 0px 0px 5px rgb(255, 255, 255);
+        box-shadow: 0px 0px 100px rgb(1, 235, 252), inset 0px 0px 10px rgb(164, 202, 248), 0px 0px 5px rgb(255, 255, 255);
 
         &:hover {
             transform: scale(1.1);
