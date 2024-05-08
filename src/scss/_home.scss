@@ -19,7 +19,8 @@ body {
 
     .banner-image {
       width: 40%;
-      margin-top: 110px;
+      margin-top: 95px;
+      margin-bottom: 10px;
       margin-left: 20px;
       top: 0;
       right: 0;
@@ -62,7 +63,7 @@ body {
         align-items: center;
         a {
           margin-right: 50px;
-          background: rgb(1, 235, 252);
+         
           color: #ffff;
           padding: 0 10px;
           text-decoration: none;
@@ -71,9 +72,18 @@ body {
           text-transform: uppercase;
           transition: 0.5s;
           cursor: pointer;
-          box-shadow: 0px 0px 100px rgb(1, 235, 252),
-            inset 0px 0px 10px rgb(1, 235, 252),
-            0px 0px 5px rgb(255, 255, 255);
+          max-width: 200px;
+          min-height: 40px;
+          padding: 10px;
+          font-family: 'Courier New', Courier, monospace;
+          outline: none;
+          background: rgb(1, 235, 252);
+          box-shadow: 5px 5px 17px #c8c8c8,
+                     -5px -5px 17px #ffffff;
+          border: none;
+          border-radius: 10px;
+          transition: all .5s;
+         
         }
       }
     }
@@ -221,8 +231,16 @@ body {
     background-color: transparent;
     z-index: 1000; // Assurez-vous que le z-index est plus élevé que celui du loader
     transition: 0.5s;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Ombre autour du header */
-    background-color: #fff;
+   
+                padding: 10px;
+                font-family: 'Courier New', Courier, monospace;
+                outline: none;
+                background:rgb(1, 235, 252);
+                box-shadow: 5px 5px 17px #c8c8c8,
+                           -5px -5px 17px #ffffff;
+                border: none;
+                border-radius: 10px;
+                transition: all .5s;
 }
 
 }

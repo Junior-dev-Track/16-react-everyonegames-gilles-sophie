@@ -14,7 +14,7 @@ const Layout = () => {
   // State pour stocker le terme de recherche
   const [searchQuery, setSearchQuery] = useState("");
   // State pour stocker la langue sélectionnée
-  const [selectedLanguage, setSelectedLanguage] = useState('en');
+  const [selectedLanguage, setSelectedLanguage] = useState("en");
   // State pour stocker les langues disponibles
   const [languages, setLanguages] = useState([]);
 
@@ -23,8 +23,7 @@ const Layout = () => {
 
   // Effet pour détecter le défilement de la page
   useEffect(() => {
-
-    api.getLanguages().then(languages => {
+    api.getLanguages().then((languages) => {
       setLanguages(languages);
     });
 
@@ -44,15 +43,14 @@ const Layout = () => {
     { name: "Home", link: "/" },
     { name: "Movies", link: "/Film" },
     { name: "TV Shows", link: "/Series" },
-    
-    {name: "Search", link: "/search"}
+    { name: "Search", link: "/search" },
   ];
 
   // Fonction pour effectuer la recherche
   const handleSearch = async () => {
-      const response = await api.searchMovie(searchQuery, "en-US", 1, false); // Recherche de films
-      console.log(response.results);
-      setSearchResults(response.results || []); // Mise à jour des résultats de recherche
+    const response = await api.searchMovie(searchQuery, "en-US", 1, false); // Recherche de films
+    console.log(response.results);
+    setSearchResults(response.results || []); // Mise à jour des résultats de recherche
   };
 
   // Gérer le changement de valeur de l'entrée de recherche
@@ -99,16 +97,18 @@ const Layout = () => {
                     {/* Bouton de recherche (icône) */}
 
                     {/* Entrée de recherche */}
-
                   </div>
                 </div>
                 {/* Boutons de connexion et de langues */}
-                <select value={selectedLanguage} onChange={handleLanguageChange}>
+                <select
+                  value={selectedLanguage}
+                  onChange={handleLanguageChange}
+                >
                   {languages.map((language) => (
-                      <option key={language.iso_639_1} value={language.iso_639_1}>
-                        {language.english_name}
-                      </option>
-                    ))}
+                    <option key={language.iso_639_1} value={language.iso_639_1}>
+                      {language.english_name}
+                    </option>
+                  ))}
                 </select>
               </div>
             </div>
@@ -117,14 +117,9 @@ const Layout = () => {
       </header>
 
       {/* Composant enfant */}
-      <Outlet/>
+      <Outlet />
     </>
   );
 };
 
 export default Layout;
-
-
-
-
-
