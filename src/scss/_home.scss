@@ -18,7 +18,6 @@ body {
     transition: 0.5s;
 
     .banner-image {
-      
       width: 40%;
       margin-top: 95px;
       margin-bottom: 10px;
@@ -68,19 +67,18 @@ body {
         flex-direction: row;
         justify-content: center;
         align-items: center;
-        
 
-        svg{
+        svg {
           width: 10px;
         }
         a {
           display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
+          flex-direction: row;
+          justify-content: center;
+          align-items: center;
           width: auto;
           margin-right: 50px;
-         gap: 5px;
+          gap: 5px;
           color: #ffff;
           padding: 0 15px;
           text-decoration: none;
@@ -89,23 +87,24 @@ body {
           text-transform: uppercase;
           transition: 0.5s;
           cursor: pointer;
-         
+
           padding: 10px;
-          font-family: 'Courier New', Courier, monospace;
+          font-family: "Courier New", Courier, monospace;
           outline: none;
           background: rgb(164, 202, 248);
-          box-shadow: 5px 5px 17px #c8c8c8,
-                     -5px -5px 17px #ffffff;
+          box-shadow: 5px 5px 17px #c8c8c8, -5px -5px 17px #ffffff;
           border: none;
           border-radius: 10px;
-          transition: all .5s;
-          box-shadow: 0px 0px 100px rgb(1, 235, 252), inset 0px 0px 10px rgb(164, 202, 248), 0px 0px 5px rgb(255, 255, 255);
-         
+          transition: all 0.5s;
+          box-shadow: 0px 0px 100px rgb(1, 235, 252),
+            inset 0px 0px 10px rgb(164, 202, 248),
+            0px 0px 5px rgb(255, 255, 255);
         }
       }
     }
   }
-  .loader-container { // Container pour le loader
+  .loader-container {
+    // Container pour le loader
     position: fixed;
     top: 0;
     left: 0;
@@ -121,32 +120,33 @@ body {
     .box-of-star2,
     .box-of-star3,
     .box-of-star4 {
-        .star {
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            background: #fff;
+      .star {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        background: #fff;
+        box-shadow: 200px 0 #fff, -200px 0 #fff, 0 200px #fff, 0 -200px #fff,
+          200px 200px #fff, -200px -200px #fff, 200px -200px #fff,
+          -200px 200px #fff, 0 0 15px rgba(255, 255, 255, 0.9),
+          0 0 35px rgba(255, 255, 255, 0.9), 0 0 50px rgba(255, 255, 255, 0.9),
+          0 0 60px rgba(255, 255, 255, 0.9);
+        animation: shine 1.5s infinite linear;
+
+        @keyframes shine {
+          to {
             box-shadow: 200px 0 #fff, -200px 0 #fff, 0 200px #fff, 0 -200px #fff,
-                200px 200px #fff, -200px -200px #fff, 200px -200px #fff,
-                -200px 200px #fff, 0 0 15px rgba(255, 255, 255, 0.9),
-                0 0 35px rgba(255, 255, 255, 0.9), 0 0 50px rgba(255, 255, 255, 0.9),
-                0 0 60px rgba(255, 255, 255, 0.9);
-            animation: shine 1.5s infinite linear;
-
-            @keyframes shine {
-                to {
-                    box-shadow: 200px 0 #fff, -200px 0 #fff, 0 200px #fff, 0 -200px #fff,
-                        200px 200px #fff, -200px -200px #fff, 200px -200px #fff,
-                        -200px 200px #fff, 0 0 25px rgba(255, 255, 255, 0.9),
-                        0 0 45px rgba(255, 255, 255, 0.9), 0 0 60px rgba(255, 255, 255, 0.9),
-                        0 0 70px rgba(255, 255, 255, 0.9);
-                }
-            }
+              200px 200px #fff, -200px -200px #fff, 200px -200px #fff,
+              -200px 200px #fff, 0 0 25px rgba(255, 255, 255, 0.9),
+              0 0 45px rgba(255, 255, 255, 0.9),
+              0 0 60px rgba(255, 255, 255, 0.9),
+              0 0 70px rgba(255, 255, 255, 0.9);
+          }
         }
+      }
     }
-}
+  }
 
-.astronaut {
+  .astronaut {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -155,89 +155,88 @@ body {
     height: 200px;
 
     .head {
-        width: 60px;
-        height: 60px;
-        background-color: #fff;
-        border-radius: 50%;
-        position: absolute;
-        top: 40px;
-        left: 70px;
+      width: 60px;
+      height: 60px;
+      background-color: #fff;
+      border-radius: 50%;
+      position: absolute;
+      top: 40px;
+      left: 70px;
     }
 
     .arm {
-        width: 120px;
-        height: 20px;
-        background-color: #fff;
-        position: absolute;
-        top: 90px;
-        border-radius: 10px;
+      width: 120px;
+      height: 20px;
+      background-color: #fff;
+      position: absolute;
+      top: 90px;
+      border-radius: 10px;
     }
 
     .arm-left {
-        transform: rotate(-30deg);
-        transform-origin: bottom left;
-        left: -10px;
+      transform: rotate(-30deg);
+      transform-origin: bottom left;
+      left: -10px;
     }
 
     .arm-right {
-        transform: rotate(30deg);
-        transform-origin: bottom right;
-        right: -10px;
+      transform: rotate(30deg);
+      transform-origin: bottom right;
+      right: -10px;
     }
 
     .body {
-        width: 100px;
-        height: 100px;
-        background-color: #fff;
-        position: absolute;
-        top: 100px;
-        left: 50px;
-        border-radius: 50%;
+      width: 100px;
+      height: 100px;
+      background-color: #fff;
+      position: absolute;
+      top: 100px;
+      left: 50px;
+      border-radius: 50%;
     }
 
     .panel {
-        width: 50px;
-        height: 70px;
-        background-color: #fff;
-        position: absolute;
-        top: 15px;
-        left: 25px;
+      width: 50px;
+      height: 70px;
+      background-color: #fff;
+      position: absolute;
+      top: 15px;
+      left: 25px;
     }
 
     .leg {
-        width: 20px;
-        height: 80px;
-        background-color: #fff;
-        position: absolute;
-        top: 200px;
-        border-radius: 10px;
+      width: 20px;
+      height: 80px;
+      background-color: #fff;
+      position: absolute;
+      top: 200px;
+      border-radius: 10px;
     }
 
     .leg-left {
-        transform: rotate(-10deg);
-        transform-origin: bottom left;
-        left: 30px;
+      transform: rotate(-10deg);
+      transform-origin: bottom left;
+      left: 30px;
     }
 
     .leg-right {
-        transform: rotate(10deg);
-        transform-origin: bottom right;
-        right: 30px;
+      transform: rotate(10deg);
+      transform-origin: bottom right;
+      right: 30px;
     }
 
     .schoolbag {
-        width: 70px;
-        height: 70px;
-        background-color: #fff;
-        position: absolute;
-        top: 170px;
-        left: -20px;
-        border-radius: 10px;
-        border-top-right-radius: 35px;
-        border-bottom-right-radius: 35px;
+      width: 70px;
+      height: 70px;
+      background-color: #fff;
+      position: absolute;
+      top: 170px;
+      left: -20px;
+      border-radius: 10px;
+      border-top-right-radius: 35px;
+      border-bottom-right-radius: 35px;
     }
-}
-
+  }
 
   header {
     position: sticky;
@@ -248,17 +247,74 @@ body {
     background-color: transparent;
     z-index: 1000; // Assurez-vous que le z-index est plus élevé que celui du loader
     transition: 0.5s;
-   
-                padding: 10px;
-                font-family: 'Courier New', Courier, monospace;
-                outline: none;
-                background: rgb(164, 202, 248);
-                box-shadow: 5px 5px 17px rgb(164, 202, 248),
-                           -5px -5px 17px #ffffff;
-                border: none;
-                border-radius: 10px;
-                transition: all .5s;
+
+    padding: 10px;
+    font-family: "Courier New", Courier, monospace;
+    outline: none;
+    background: rgb(164, 202, 248);
+    box-shadow: 5px 5px 17px rgb(164, 202, 248), -5px -5px 17px #ffffff;
+    border: none;
+    border-radius: 10px;
+    transition: all 0.5s;
+  }
 }
 
+/* Media Query pour les tablettes */
+@media (max-width: 1024px) {
+  .banner {
+    flex-direction: column;
+  }
+
+  .banner-image {
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    margin-left: 0;
+  }
+
+  .details {
+    padding: 10px;
+  }
 }
 
+/* Media Query pour les téléphones */
+@media (max-width: 768px) {
+  .banner {
+    flex-direction: column;
+  }
+
+  .banner-image {
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    margin-left: 0;
+  }
+
+  .details {
+    padding: 10px;
+
+    .button {
+      margin-right: 0;
+    }
+  }
+}
+
+header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px;
+  background-color: transparent;
+  z-index: 1000; // Assurez-vous que le z-index est plus élevé que celui du loader
+  transition: 0.5s;
+
+  padding: 10px;
+  font-family: "Courier New", Courier, monospace;
+  outline: none;
+  background: rgb(164, 202, 248);
+  box-shadow: 5px 5px 17px rgb(164, 202, 248), -5px -5px 17px #ffffff;
+  border: none;
+  border-radius: 10px;
+  transition: all 0.5s;
+}

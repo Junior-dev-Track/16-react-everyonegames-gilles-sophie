@@ -78,6 +78,28 @@
 }
 
 
+/* Media Query pour les tablettes */
+@media (max-width: 1024px) {
+    .film-container {
+        grid-template-columns: repeat(2, 1fr);
+        padding-left: 0;
+    }
+
+    .film-item {
+        width: calc(100% - 10px);
+    }
+}
+
+/* Media Query pour les téléphones */
+@media (max-width: 768px) {
+    .film-container {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .film-item {
+        width: calc(100% - 10px);
+    }
+}
 
 
 

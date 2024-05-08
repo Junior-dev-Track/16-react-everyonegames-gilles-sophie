@@ -34,8 +34,10 @@ const Series = () => {
         return () => window.removeEventListener('scroll', handleScroll);
     }, [fetchedMovieIds]); // Trigger when new movies are fetched
 
+    // Ajouter l'état pour suivre si le film est déroulé ou réduit
     const [expandedMovieId, setExpandedMovieId] = useState(null);
 
+    // Fonction pour basculer entre l'état déroulé et réduit d'un film
     const toggleMovieOverview = (movieId) => {
         setExpandedMovieId(prevId => (prevId === movieId ? null : movieId));
     };
@@ -46,8 +48,8 @@ const Series = () => {
                 <div key={index} className="film-item">
                     <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} />
                     <div className="film-details">
-                        <h3>{movie.title}</h3>
-                        <p>Release Date: {movie.release_date}</p>
+                        <h3>{movie.name}</h3>
+                        <p>Release Date: {movie.first_air_date}</p>
                         <p>Rating: {movie.vote_average}</p>
                         {expandedMovieId === movie.id ? (
                             <div>
@@ -65,6 +67,7 @@ const Series = () => {
 };
 
 export default Series;
+
 
 
 

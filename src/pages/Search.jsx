@@ -62,7 +62,7 @@ const handleSearch = async (event) => {
             {/* Afficher les détails du film */}
             <div className="film-details">
               <h3>{result.title}</h3>
-              <p>Release Date: {result.release_date}</p>
+              {result.release_date && <p>Release Date: {result.release_date}</p>}
               <p>Rating: {result.vote_average}</p>
               {/* Ajoutez d'autres informations du film ici */}
             </div>
@@ -74,6 +74,7 @@ const handleSearch = async (event) => {
 };
 
 export default Search;
+
 
 
 
