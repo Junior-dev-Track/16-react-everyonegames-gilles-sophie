@@ -1,18 +1,16 @@
-
-import {BrowserRouter, Route, Routes} from "react-router-dom";
+import React from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ReactDOM from "react-dom/client";
 import Layout from "./pages/Layout";
 import Home from "./pages/Home";
 import Film from "./pages/Film.jsx";
 import Series from "./pages/Series.jsx";
+import SeriesDetails from "./pages/SeriesDetails.jsx"; // Nouveau composant pour afficher les détails de la série
 import Search from "./pages/Search";
 import NoPage from "./pages/NoPage";
-import  './scss/style.scss';
-
-
+import './scss/style.scss';
 
 function App() {
-
     return (
         <BrowserRouter>
             <Routes>
@@ -20,7 +18,8 @@ function App() {
                     <Route index element={<Home />} />
                     <Route path="film" element={<Film />} />
                     <Route path="series" element={<Series />} />
-                    <Route path={"Search"} element={<Search />} />
+                    <Route path="series/:id" element={<SeriesDetails />} /> {/* Nouvelle route pour afficher les détails de la série */}
+                    <Route path="search" element={<Search />} /> {/* Corrigé le chemin de la route de recherche */}
                     <Route path="*" element={<NoPage />} />
                 </Route>
             </Routes>
@@ -30,4 +29,5 @@ function App() {
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(<App />);
-export default App
+export default App;
+
