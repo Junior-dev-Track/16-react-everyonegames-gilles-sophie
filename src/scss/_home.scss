@@ -5,10 +5,9 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-
     display: flex;
-    flex-direction: row; // Aligner les éléments horizontalement
-    justify-content: space-between; // Espacer les éléments
+    flex-direction: row;
+    justify-content: space-between;
     background: linear-gradient(
       0deg,
       rgb(218, 232, 247) 0%,
@@ -19,16 +18,21 @@ body {
     transition: 0.5s;
 
     .banner-image {
-      width: 40%; /* Ajustez la largeur de l'image selon vos préférences */
-
+      width: 40%;
+      margin-top: 110px;
+      margin-left: 20px;
       top: 0;
       right: 0;
       left: 0;
       bottom: 0;
+      border: 1px solid rgb(1, 235, 252);
+      border-radius: 5%;
+      box-shadow: 0px 0px 100px rgb(1, 235, 252),
+        inset 0px 0px 10px rgb(1, 235, 252), 0px 0px 5px rgb(255, 255, 255);
     }
 
     .details {
-      flex: 1; // Les détails prennent tout l'espace restant
+      flex: 1;
       padding: 20px;
       display: flex;
       flex-direction: column;
@@ -36,11 +40,12 @@ body {
       align-items: center;
       .title {
         font-family: "roboto";
-        font-style: 900;
+        font-weight: 900;
         line-height: 2rem;
       }
 
       h4 {
+        font-family: "roboto";
         margin-bottom: 10px;
       }
 
@@ -53,23 +58,159 @@ body {
       .button {
         display: flex;
         flex-direction: row;
-
+        justify-content: center;
+        align-items: center;
         a {
-          margin-right: 30px;
+          margin-right: 50px;
           background: rgb(1, 235, 252);
           color: #ffff;
-          padding: 6px 30px;
+          padding: 0 10px;
           text-decoration: none;
           font-weight: 700;
           letter-spacing: 1px;
           text-transform: uppercase;
           transition: 0.5s;
           cursor: pointer;
-          box-shadow: 0px 0px 100px rgb(1, 235, 252), inset 0px 0px 10px rgb(1, 235, 252), 0px 0px 5px rgb(255, 255, 255);
+          box-shadow: 0px 0px 100px rgb(1, 235, 252),
+            inset 0px 0px 10px rgb(1, 235, 252),
+            0px 0px 5px rgb(255, 255, 255);
         }
       }
     }
   }
+  .loader-container { // Container pour le loader
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.8); // Fond semi-transparent
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .box-of-star1,
+    .box-of-star2,
+    .box-of-star3,
+    .box-of-star4 {
+        .star {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            background: #fff;
+            box-shadow: 200px 0 #fff, -200px 0 #fff, 0 200px #fff, 0 -200px #fff,
+                200px 200px #fff, -200px -200px #fff, 200px -200px #fff,
+                -200px 200px #fff, 0 0 15px rgba(255, 255, 255, 0.9),
+                0 0 35px rgba(255, 255, 255, 0.9), 0 0 50px rgba(255, 255, 255, 0.9),
+                0 0 60px rgba(255, 255, 255, 0.9);
+            animation: shine 1.5s infinite linear;
+
+            @keyframes shine {
+                to {
+                    box-shadow: 200px 0 #fff, -200px 0 #fff, 0 200px #fff, 0 -200px #fff,
+                        200px 200px #fff, -200px -200px #fff, 200px -200px #fff,
+                        -200px 200px #fff, 0 0 25px rgba(255, 255, 255, 0.9),
+                        0 0 45px rgba(255, 255, 255, 0.9), 0 0 60px rgba(255, 255, 255, 0.9),
+                        0 0 70px rgba(255, 255, 255, 0.9);
+                }
+            }
+        }
+    }
+}
+
+.astronaut {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 200px;
+    height: 200px;
+
+    .head {
+        width: 60px;
+        height: 60px;
+        background-color: #fff;
+        border-radius: 50%;
+        position: absolute;
+        top: 40px;
+        left: 70px;
+    }
+
+    .arm {
+        width: 120px;
+        height: 20px;
+        background-color: #fff;
+        position: absolute;
+        top: 90px;
+        border-radius: 10px;
+    }
+
+    .arm-left {
+        transform: rotate(-30deg);
+        transform-origin: bottom left;
+        left: -10px;
+    }
+
+    .arm-right {
+        transform: rotate(30deg);
+        transform-origin: bottom right;
+        right: -10px;
+    }
+
+    .body {
+        width: 100px;
+        height: 100px;
+        background-color: #fff;
+        position: absolute;
+        top: 100px;
+        left: 50px;
+        border-radius: 50%;
+    }
+
+    .panel {
+        width: 50px;
+        height: 70px;
+        background-color: #fff;
+        position: absolute;
+        top: 15px;
+        left: 25px;
+    }
+
+    .leg {
+        width: 20px;
+        height: 80px;
+        background-color: #fff;
+        position: absolute;
+        top: 200px;
+        border-radius: 10px;
+    }
+
+    .leg-left {
+        transform: rotate(-10deg);
+        transform-origin: bottom left;
+        left: 30px;
+    }
+
+    .leg-right {
+        transform: rotate(10deg);
+        transform-origin: bottom right;
+        right: 30px;
+    }
+
+    .schoolbag {
+        width: 70px;
+        height: 70px;
+        background-color: #fff;
+        position: absolute;
+        top: 170px;
+        left: -20px;
+        border-radius: 10px;
+        border-top-right-radius: 35px;
+        border-bottom-right-radius: 35px;
+    }
+}
+
 
   header {
     position: sticky;
@@ -78,11 +219,11 @@ body {
     width: 100%;
     padding: 20px;
     background-color: transparent;
-    z-index: 1000;
+    z-index: 1000; // Assurez-vous que le z-index est plus élevé que celui du loader
     transition: 0.5s;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Ombre autour du header */
+    background-color: #fff;
+}
 
-    // Si vous avez besoin d'une ombre seulement en bas du header, vous pouvez utiliser ceci :
-    // box-shadow: 0 5px 5px -5px rgba(0, 0, 0, 0.1); /* Ombre seulement en bas du header */
 }
-}
+

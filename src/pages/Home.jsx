@@ -11,6 +11,7 @@ const Home = () => {
     const [fetchedMovieIds, setFetchedMovieIds] = useState(new Set());
     const [selectedMovieIndex, setSelectedMovieIndex] = useState(0);
     const [autoplayInterval, setAutoplayInterval] = useState(null);
+    const [isLoading, setIsLoading] = useState(true); // Ajout de l'état isLoading
 
     useEffect(() => {
         getMovies(page);
@@ -28,6 +29,7 @@ const Home = () => {
             const newMovies = response.data.results.filter(movie => !fetchedMovieIds.has(movie.id));
             newMovies.forEach(movie => fetchedMovieIds.add(movie.id));
             setMovieList(prevMovies => [...prevMovies, ...newMovies]);
+            setIsLoading(false); // Marquer le chargement comme terminé
         } catch (error) {
             console.error("Error fetching movies:", error);
         }
@@ -48,26 +50,77 @@ const Home = () => {
 
     return (
         <div>
-            {movieList.length > 0 && (
-                <div className="banner">
-                    
-                    <img src={`https://image.tmdb.org/t/p/w500/${movieList[selectedMovieIndex].poster_path}`} alt={movieList[selectedMovieIndex].title} className="banner-image" />
-                    
-                    <div className="details">
-                        <h4 className="title">{movieList[selectedMovieIndex].title}</h4>
-                        <p>{movieList[selectedMovieIndex].overview}</p>
-                        <div className="button">
-                            <a href={`#/${movieList[selectedMovieIndex].id}`}>More <AiOutlineInfoCircle /></a>
-                            <a href={`#/${movieList[selectedMovieIndex].id}`}>Watch Trailer <FaPlay /></a>
+            {isLoading ? ( // Afficher le loader si isLoading est true
+                <div>
+                    <div className="box-of-star1">
+                        <div className="star star-position1"></div>
+                        <div className="star star-position2"></div>
+                        <div className="star star-position3"></div>
+                        <div className="star star-position4"></div>
+                        <div className="star star-position5"></div>
+                        <div className="star star-position6"></div>
+                        <div className="star star-position7"></div>
+                    </div>
+                    <div className="box-of-star2">
+                        <div className="star star-position1"></div>
+                        <div className="star star-position2"></div>
+                        <div className="star star-position3"></div>
+                        <div className="star star-position4"></div>
+                        <div className="star star-position5"></div>
+                        <div className="star star-position6"></div>
+                        <div className="star star-position7"></div>
+                    </div>
+                    <div className="box-of-star3">
+                        <div className="star star-position1"></div>
+                        <div className="star star-position2"></div>
+                        <div className="star star-position3"></div>
+                        <div className="star star-position4"></div>
+                        <div className="star star-position5"></div>
+                        <div className="star star-position6"></div>
+                        <div className="star star-position7"></div>
+                    </div>
+                    <div className="box-of-star4">
+                        <div className="star star-position1"></div>
+                        <div className="star star-position2"></div>
+                        <div className="star star-position3"></div>
+                        <div className="star star-position4"></div>
+                        <div className="star star-position5"></div>
+                        <div className="star star-position6"></div>
+                        <div className="star star-position7"></div>
+                    </div>
+                    <div data-js="astro" className="astronaut">
+                        <div className="head"></div>
+                        <div className="arm arm-left"></div>
+                        <div className="arm arm-right"></div>
+                        <div className="body">
+                            <div className="panel"></div>
                         </div>
+                        <div className="leg leg-left"></div>
+                        <div className="leg leg-right"></div>
+                        <div className="schoolbag"></div>
                     </div>
                 </div>
+            ) : ( // Sinon, afficher le contenu normal
+                movieList.length > 0 && (
+                    <div className="banner">
+                        <img src={`https://image.tmdb.org/t/p/w500/${movieList[selectedMovieIndex].poster_path}`} alt={movieList[selectedMovieIndex].title} className="banner-image" />
+                        <div className="details">
+                            <h4 className="title">{movieList[selectedMovieIndex].title}</h4>
+                            <p>{movieList[selectedMovieIndex].overview}</p>
+                            <div className="button">
+                                <a href={`#/${movieList[selectedMovieIndex].id}`}>More <AiOutlineInfoCircle /></a>
+                                <a href={`#/${movieList[selectedMovieIndex].id}`}>Watch Trailer <FaPlay /></a>
+                            </div>
+                        </div>
+                    </div>
+                )
             )}
         </div>
     );
 };
 
 export default Home;
+
 
 
 

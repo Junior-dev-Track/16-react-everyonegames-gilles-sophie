@@ -44,7 +44,7 @@ const Layout = () => {
     { name: "Home", link: "/" },
     { name: "Movies", link: "/Film" },
     { name: "TV Shows", link: "/Series" },
-    { name: "My List", link: "/mylist" },
+    
     {name: "Search", link: "/search"}
   ];
 

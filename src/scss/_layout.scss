@@ -1,5 +1,5 @@
 header {
-  background-color: transparent;
+ 
   nav {
     position: sticky;
     justify-content: space-between;
@@ -28,7 +28,7 @@ header {
               align-items: center;
 
               li {
-                margin-right: 10px;
+                margin-right: 50px;
               }
 
               li:last-child {
@@ -42,24 +42,14 @@ header {
                 position: relative;
                 width: 100px;
                 height: 100px;
-                border: 2px solid rgb(1, 235, 252);
+                
                 overflow: hidden;
-                box-shadow: 0px 0px 100px rgb(1, 235, 252), inset 0px 0px 10px rgb(1, 235, 252), 0px 0px 5px rgb(255, 255, 255);
+                
                 padding: 10px;
                 animation: text-flicker 2s linear infinite; /* Changement ici */
               }
 
-              @keyframes text-flicker { /* Changement ici */
-                0% {
-                  color: black;
-                }
-                50% {
-                  color: transparent; /* Changement ici */
-                }
-                100% {
-                  color: black;
-                }
-              }
+             
             }
           }
         }
@@ -123,17 +113,7 @@ header {
                 }
               }
               /** ne fonctionne pas encore la transition de search**/
-              .show-search {
-                border: 1px solid rgb(1, 235, 252);
-                background-color: rgb(1, 235, 252);
-                box-shadow: 0px 0px 100px rgb(1, 235, 252), inset 0px 0px 10px rgb(1, 235, 252), 0px 0px 5px rgb(255, 255, 255);
-                input {
-                  width: 100%;
-                  opacity: 1;
-                  visibility: visible;
-                  padding: 0.3rem;
-                }
-              }
+              
             }
           }
         }
