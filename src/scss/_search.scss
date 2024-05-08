@@ -39,6 +39,11 @@
             border: 1px solid #ccc;
             border-radius: 5px;
             outline: none;
+            box-shadow: 5px 5px 17px #c8c8c8,
+            -5px -5px 17px #ffffff;
+ border: none;
+ border-radius: 10px;
+ transition: all .5s;
     
             &:focus {
               border-color: #007bff; // Couleur de la bordure lorsqu'il est en focus
