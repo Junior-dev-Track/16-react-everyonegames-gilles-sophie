@@ -34,6 +34,12 @@ const Series = () => {
         return () => window.removeEventListener('scroll', handleScroll);
     }, [fetchedMovieIds]); // Trigger when new movies are fetched
 
+    const [expandedMovieId, setExpandedMovieId] = useState(null);
+
+    const toggleMovieOverview = (movieId) => {
+        setExpandedMovieId(prevId => (prevId === movieId ? null : movieId));
+    };
+
     return (
         <div className="film-container">
             {movieList.map((movie, index) => (
@@ -43,7 +49,14 @@ const Series = () => {
                         <h3>{movie.title}</h3>
                         <p>Release Date: {movie.release_date}</p>
                         <p>Rating: {movie.vote_average}</p>
-                        <p>{movie.overview}</p>
+                        {expandedMovieId === movie.id ? (
+                            <div>
+                                <p>{movie.overview}</p>
+                                <button onClick={() => toggleMovieOverview(movie.id)}>Less</button>
+                            </div>
+                        ) : (
+                            <button onClick={() => toggleMovieOverview(movie.id)}>More</button>
+                        )}
                     </div>
                 </div>
             ))}
@@ -52,5 +65,6 @@ const Series = () => {
 };
 
 export default Series;
+
 
 

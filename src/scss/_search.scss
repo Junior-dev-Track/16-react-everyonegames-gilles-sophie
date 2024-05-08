@@ -59,7 +59,8 @@
   // Style pour les résultats de recherche
   .search-results {
     display: flex;
-    margin-left: 90px;
+    justify-content: center;
+    align-items: center;
     flex-wrap: wrap; // Permet aux résultats de passer à la ligne lorsque l'espace est insuffisant
     box-shadow: 0px 0px 100px rgb(164, 202, 248), inset 0px 0px 10px rgb(164, 202, 248), 0px 0px 5px rgb(255, 255, 255);
 
@@ -74,7 +75,7 @@
         width: 100%;
         height: auto;
         border-radius: 10%;
-        box-shadow: 0px 0px 100px rgb(1, 235, 252), inset 0px 0px 10px rgb(1, 235, 252), 0px 0px 5px rgb(255, 255, 255);
+        box-shadow: 0px 0px 100px rgb(164, 202, 248), inset 0px 0px 10px rgb(1, 235, 252), 0px 0px 5px rgb(255, 255, 255);
        
       }
 
